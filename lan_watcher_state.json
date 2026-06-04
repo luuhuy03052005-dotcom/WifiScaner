@@ -1,0 +1,1432 @@
+{
+  "schema_version": 2,
+  "saved_at": 1780596558.9416027,
+  "devices": [
+    {
+      "device_id": "00:0c:29:66:51:ac",
+      "mac": "00:0c:29:66:51:ac",
+      "ips": {
+        "192.168.46.107": 1779987203.6713526,
+        "192.168.44.102": 1780468409.1514494,
+        "192.168.44.101": 1780338666.207443,
+        "192.168.46.103": 1780495512.009448,
+        "192.168.46.106": 1780596557.845121
+      },
+      "first_seen": 1779985223.5882192,
+      "last_seen": 1780506694.1567004,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "dhcp-sniff",
+        "macvendors",
+        "ssdp-passive"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [
+        {
+          "value": "kali",
+          "source": "dhcp",
+          "score": 100,
+          "last_seen": 1780468409.102562
+        }
+      ],
+      "services": [
+        "ssdp:all"
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Unknown",
+      "confidence": 10,
+      "evidence": [],
+      "offline_fail_count": 1028,
+      "last_probe_at": 1780596557.845121,
+      "returning_count": 20,
+      "last_fast_scan": 1780506673.3475804,
+      "last_slow_scan": 1780506353.1681907,
+      "rx_bytes_total": 0,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 0,
+      "tx_packets_total": 0,
+      "last_traffic_at": 0.0
+    },
+    {
+      "device_id": "00:0c:29:f7:76:aa",
+      "mac": "00:0c:29:f7:76:aa",
+      "ips": {
+        "192.168.44.105": 1780338648.5413587,
+        "192.168.44.1": 1780594651.0006943
+      },
+      "first_seen": 1780337485.6099474,
+      "last_seen": 1780594650.8319676,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "dhcp-sniff",
+        "http-title",
+        "macvendors",
+        "ssdp-passive",
+        "tcp-fingerprint",
+        "tcp-liveness"
+      ],
+      "vendor": "VMware, Inc.",
+      "names": [
+        {
+          "value": "TL-WR841N",
+          "source": "http",
+          "score": 40,
+          "last_seen": 1780478179.25315
+        }
+      ],
+      "services": [
+        "22/ssh",
+        "80/http",
+        "8080/http",
+        "Router Webserver",
+        "ipos/7.0 UPnP/1.0 TL-WR84...",
+        "ssdp:all",
+        "upnp:rootdevice",
+        "urn:schemas-upnp-org:devi...",
+        "urn:schemas-upnp-org:serv...",
+        "urn:schemas-wifialliance-...",
+        "uuid:060b7353-fca6-4070-8...",
+        "uuid:254e9977-8964-49f3-b...",
+        "uuid:565aa949-67c1-4c0e-a...",
+        "uuid:9f0865b3-f5da-4ad5-8..."
+      ],
+      "http_titles": {
+        "80": "TL-WR841N"
+      },
+      "tls_names": {},
+      "device_type": "Router/AP",
+      "confidence": 94,
+      "evidence": [
+        "default-gateway",
+        "ssh+web-admin",
+        "ssh+web",
+        "keyword:Router/AP"
+      ],
+      "offline_fail_count": 1,
+      "last_probe_at": 1780594651.0006943,
+      "returning_count": 9,
+      "last_fast_scan": 1780478175.1188781,
+      "last_slow_scan": 1780478175.1188781,
+      "rx_bytes_total": 170082,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2577,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594650.8319676
+    },
+    {
+      "device_id": "04:72:ef:15:77:76",
+      "mac": "04:72:ef:15:77:76",
+      "ips": {
+        "192.168.46.105": 1780591417.381953,
+        "192.168.46.114": 1780596557.846127
+      },
+      "first_seen": 1779985224.0319686,
+      "last_seen": 1780592693.3404086,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Apple, Inc.",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 12,
+      "evidence": [
+        "keyword:Apple Device"
+      ],
+      "offline_fail_count": 699,
+      "last_probe_at": 1780596557.846127,
+      "returning_count": 46,
+      "last_fast_scan": 1780592692.9678693,
+      "last_slow_scan": 1780592631.566887,
+      "rx_bytes_total": 0,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 0,
+      "tx_packets_total": 0,
+      "last_traffic_at": 0.0
+    },
+    {
+      "device_id": "1a:27:c7:fb:3d:9f",
+      "mac": "1a:27:c7:fb:3d:9f",
+      "ips": {
+        "192.168.46.108": 1780596557.836885
+      },
+      "first_seen": 1780410576.0831258,
+      "last_seen": 1780410906.0667334,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 5251,
+      "last_probe_at": 1780596557.836885,
+      "returning_count": 1,
+      "last_fast_scan": 1780410897.0130076,
+      "last_slow_scan": 1780410576.0831258,
+      "rx_bytes_total": 0,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 0,
+      "tx_packets_total": 0,
+      "last_traffic_at": 0.0
+    },
+    {
+      "device_id": "20:1e:88:3b:b7:99",
+      "mac": "20:1e:88:3b:b7:99",
+      "ips": {
+        "192.168.46.112": 1780495075.586346,
+        "192.168.46.105": 1780596557.8431008
+      },
+      "first_seen": 1779985227.4443567,
+      "last_seen": 1780592733.819094,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "ssdp-passive"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [
+        "urn:schemas-upnp-org:devi..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Unknown",
+      "confidence": 10,
+      "evidence": [],
+      "offline_fail_count": 689,
+      "last_probe_at": 1780596557.8431008,
+      "returning_count": 80,
+      "last_fast_scan": 1780592721.1336172,
+      "last_slow_scan": 1780592631.5541563,
+      "rx_bytes_total": 0,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 0,
+      "tx_packets_total": 0,
+      "last_traffic_at": 0.0
+    },
+    {
+      "device_id": "30:24:50:09:7a:f9",
+      "mac": "30:24:50:09:7a:f9",
+      "ips": {
+        "192.168.1.103": 1780594650.9896472,
+        "192.168.1.108": 1780164124.875615
+      },
+      "first_seen": 1780164088.5731058,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "tcp-fingerprint"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [
+        "554/rtsp",
+        "80/http"
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Camera/NVR",
+      "confidence": 24,
+      "evidence": [
+        "rtsp"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594650.9896472,
+      "returning_count": 0,
+      "last_fast_scan": 1780164088.5731058,
+      "last_slow_scan": 1780164088.5731058,
+      "rx_bytes_total": 158136,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2396,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "30:24:50:09:7b:18",
+      "mac": "30:24:50:09:7b:18",
+      "ips": {
+        "192.168.1.104": 1780594650.9957197,
+        "192.168.1.108": 1780164125.7327592
+      },
+      "first_seen": 1780164088.5741122,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "tcp-fingerprint"
+      ],
+      "vendor": "Hangzhou Huacheng Network Technology Co.,Ltd",
+      "names": [],
+      "services": [
+        "554/rtsp",
+        "80/http"
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Camera/NVR",
+      "confidence": 24,
+      "evidence": [
+        "rtsp"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594650.9957197,
+      "returning_count": 0,
+      "last_fast_scan": 1780164088.5741122,
+      "last_slow_scan": 1780164088.5741122,
+      "rx_bytes_total": 158400,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2400,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "34:e8:94:da:f2:bf",
+      "mac": "34:e8:94:da:f2:bf",
+      "ips": {
+        "192.168.44.1": 1780594650.98693
+      },
+      "first_seen": 1779986658.2588634,
+      "last_seen": 1780594637.481234,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "http-title",
+        "macvendors",
+        "ssdp-passive",
+        "tcp-fingerprint",
+        "tcp-liveness"
+      ],
+      "vendor": "TP-LINK TECHNOLOGIES CO.,LTD.",
+      "names": [
+        {
+          "value": "TL-WR841N",
+          "source": "http",
+          "score": 40,
+          "last_seen": 1780478175.5702276
+        }
+      ],
+      "services": [
+        "22/ssh",
+        "80/http",
+        "Router Webserver",
+        "Unspecified, UPnP/1.0, Un...",
+        "ipos/7.0 UPnP/1.0 TL-WR84...",
+        "upnp:rootdevice",
+        "urn:schemas-upnp-org:devi...",
+        "urn:schemas-upnp-org:serv...",
+        "urn:schemas-wifialliance-...",
+        "uuid:00000000-0000-1000-0...",
+        "uuid:060b7353-fca6-4070-8...",
+        "uuid:254e9977-8964-49f3-b...",
+        "uuid:565aa949-67c1-4c0e-a...",
+        "uuid:9f0865b3-f5da-4ad5-8..."
+      ],
+      "http_titles": {
+        "80": "TL-WR841N"
+      },
+      "tls_names": {},
+      "device_type": "Router/AP",
+      "confidence": 94,
+      "evidence": [
+        "default-gateway",
+        "ssh+web-admin",
+        "ssh+web",
+        "keyword:Router/AP"
+      ],
+      "offline_fail_count": 4,
+      "last_probe_at": 1780594650.98693,
+      "returning_count": 8,
+      "last_fast_scan": 1780478171.540683,
+      "last_slow_scan": 1780478171.540683,
+      "rx_bytes_total": 141768,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2148,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594637.481234
+    },
+    {
+      "device_id": "46:97:e2:dc:65:f0",
+      "mac": "46:97:e2:dc:65:f0",
+      "ips": {
+        "192.168.46.106": 1780596557.845121
+      },
+      "first_seen": 1779976983.414487,
+      "last_seen": 1779987203.6713526,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "ssdp-passive"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [
+        "urn:dial-multiscreen-org:..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 6001,
+      "last_probe_at": 1780596557.845121,
+      "returning_count": 15,
+      "last_fast_scan": 1779987202.9381597,
+      "last_slow_scan": 1779986914.2599666,
+      "rx_bytes_total": 0,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 0,
+      "tx_packets_total": 0,
+      "last_traffic_at": 0.0
+    },
+    {
+      "device_id": "48:e7:da:42:82:39",
+      "mac": "48:e7:da:42:82:39",
+      "ips": {
+        "192.168.46.100": 1780473457.7071917,
+        "192.168.46.107": 1779987195.9404051,
+        "192.168.46.1": 1779986989.0951896,
+        "192.168.46.106": 1780506695.077696,
+        "192.168.44.101": 1780033405.4465456,
+        "192.168.44.102": 1780468388.5796685,
+        "192.168.44.100": 1780478221.5974207,
+        "192.168.1.10": 1780164125.7327592,
+        "192.168.44.105": 1780338511.18857,
+        "192.168.44.1": 1780338238.5706255,
+        "192.168.44.103": 1780338238.5716398,
+        "192.168.46.103": 1780473457.085549,
+        "192.168.46.115": 1780596558.7254064,
+        "192.168.47.101": 1780479505.9449155
+      },
+      "first_seen": 1779976950.063457,
+      "last_seen": 1780596558.7254064,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "dhcp-sniff",
+        "macvendors",
+        "reverse-dns",
+        "ssdp-passive",
+        "tcp-fingerprint",
+        "tcp-liveness"
+      ],
+      "vendor": "AzureWave Technology Inc.",
+      "names": [
+        {
+          "value": "Huy",
+          "source": "dhcp",
+          "score": 100,
+          "last_seen": 1780504688.3149343
+        },
+        {
+          "value": "Huy",
+          "source": "dns",
+          "score": 65,
+          "last_seen": 1780596526.8879595
+        }
+      ],
+      "services": [
+        "139/netbios",
+        "445/smb",
+        "Unspecified, UPnP/1.0, Un...",
+        "ipos/7.0 UPnP/1.0 TL-WR84...",
+        "ssdp:all",
+        "upnp:rootdevice",
+        "urn:dial-multiscreen-org:...",
+        "urn:schemas-upnp-org:devi...",
+        "urn:schemas-upnp-org:serv...",
+        "urn:schemas-wifialliance-...",
+        "uuid:00000000-0000-1000-0...",
+        "uuid:060b7353-fca6-4070-8...",
+        "uuid:254e9977-8964-49f3-b...",
+        "uuid:565aa949-67c1-4c0e-a...",
+        "uuid:9f0865b3-f5da-4ad5-8..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Windows Laptop/PC",
+      "confidence": 68,
+      "evidence": [
+        "smb/netbios:34",
+        "smb/netbios:32",
+        "file-share:8",
+        "keyword:Windows Laptop/PC:12",
+        "generic-wifi-nic:12",
+        "generic-wifi-nic:3"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780479505.238789,
+      "returning_count": 40,
+      "last_fast_scan": 1780596526.4198875,
+      "last_slow_scan": 1780596487.085514,
+      "rx_bytes_total": 129057611,
+      "tx_bytes_total": 155397575,
+      "rx_packets_total": 180740,
+      "tx_packets_total": 207177,
+      "last_traffic_at": 1780596557.9933152
+    },
+    {
+      "device_id": "4a:5c:25:61:30:9c",
+      "mac": "4a:5c:25:61:30:9c",
+      "ips": {
+        "192.168.46.111": 1780495087.9783466,
+        "192.168.46.100": 1780596557.8395014
+      },
+      "first_seen": 1780410944.364642,
+      "last_seen": 1780506690.5954459,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "dhcp-sniff",
+        "macvendors",
+        "ssdp-passive"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [
+        "urn:schemas-upnp-org:devi..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 1028,
+      "last_probe_at": 1780596557.8395014,
+      "returning_count": 29,
+      "last_fast_scan": 1780506637.4866798,
+      "last_slow_scan": 1780506401.4862986,
+      "rx_bytes_total": 0,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 0,
+      "tx_packets_total": 0,
+      "last_traffic_at": 0.0
+    },
+    {
+      "device_id": "50:bb:b5:58:50:28",
+      "mac": "50:bb:b5:58:50:28",
+      "ips": {
+        "192.168.46.113": 1780596558.3253307
+      },
+      "first_seen": 1780591402.789409,
+      "last_seen": 1780596558.3253307,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "dhcp-sniff",
+        "macvendors",
+        "netbios-query",
+        "reverse-dns",
+        "ssdp-passive"
+      ],
+      "vendor": "AzureWave Technology Inc.",
+      "names": [
+        {
+          "value": "LAPTOP-UKK2299F",
+          "source": "netbios",
+          "score": 80,
+          "last_seen": 1780596118.6508868
+        },
+        {
+          "value": "LAPTOP-UKK2299F",
+          "source": "dns",
+          "score": 65,
+          "last_seen": 1780596247.4768732
+        }
+      ],
+      "services": [
+        "urn:schemas-upnp-org:devi..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Windows Laptop/PC",
+      "confidence": 56,
+      "evidence": [
+        "keyword:Windows Laptop/PC:12",
+        "generic-wifi-nic:12",
+        "generic-wifi-nic:3",
+        "named-wifi-client:12",
+        "computer-name:20"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780596510.519456,
+      "returning_count": 7,
+      "last_fast_scan": 1780596549.9951518,
+      "last_slow_scan": 1780595996.7506752,
+      "rx_bytes_total": 419814,
+      "tx_bytes_total": 14602,
+      "rx_packets_total": 6310,
+      "tx_packets_total": 125,
+      "last_traffic_at": 1780596557.5858357
+    },
+    {
+      "device_id": "52:ea:1d:03:05:34",
+      "mac": "52:ea:1d:03:05:34",
+      "ips": {
+        "192.168.46.111": 1780596557.8395014
+      },
+      "first_seen": 1779985318.9400713,
+      "last_seen": 1780596557.5858357,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 1,
+      "last_probe_at": 1780596557.8395014,
+      "returning_count": 13,
+      "last_fast_scan": 1779986982.6290987,
+      "last_slow_scan": 1779986906.9633894,
+      "rx_bytes_total": 226662,
+      "tx_bytes_total": 18318,
+      "rx_packets_total": 3426,
+      "tx_packets_total": 273,
+      "last_traffic_at": 1780596557.5858357
+    },
+    {
+      "device_id": "68:ff:7b:3e:8c:06",
+      "mac": "68:ff:7b:3e:8c:06",
+      "ips": {
+        "192.168.46.1": 1780596557.9041612
+      },
+      "first_seen": 1779976950.0639694,
+      "last_seen": 1780596557.9041612,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "ssdp-passive",
+        "tcp-fingerprint",
+        "tcp-liveness"
+      ],
+      "vendor": "TP-LINK TECHNOLOGIES CO.,LTD.",
+      "names": [],
+      "services": [
+        "22/ssh",
+        "80/http",
+        "Linux/2.6.36, UPnP/1.0, P...",
+        "upnp:rootdevice",
+        "urn:schemas-upnp-org:devi...",
+        "urn:schemas-upnp-org:serv...",
+        "uuid:9f0865b3-f5da-4ad5-8..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Router/AP",
+      "confidence": 100,
+      "evidence": [
+        "default-gateway:70",
+        "ssh+web-admin:12",
+        "ssh+web:10",
+        "ssh+web:8",
+        "keyword:Router/AP:12",
+        "keyword:Linux/Server:12"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780479426.506283,
+      "returning_count": 34,
+      "last_fast_scan": 1780596538.4788642,
+      "last_slow_scan": 1780596493.1952214,
+      "rx_bytes_total": 358109,
+      "tx_bytes_total": 705291,
+      "rx_packets_total": 2908,
+      "tx_packets_total": 3282,
+      "last_traffic_at": 1780596551.7654314
+    },
+    {
+      "device_id": "72:7f:a5:ea:81:23",
+      "mac": "72:7f:a5:ea:81:23",
+      "ips": {
+        "192.168.44.100": 1780594650.9891407
+      },
+      "first_seen": 1779986658.5164568,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "reverse-dns",
+        "tcp-fingerprint",
+        "tcp-liveness"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [
+        {
+          "value": "Huy",
+          "source": "dns",
+          "score": 65,
+          "last_seen": 1780478175.5564194
+        }
+      ],
+      "services": [
+        "139/netbios",
+        "445/smb"
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Windows PC",
+      "confidence": 18,
+      "evidence": [
+        "smb/netbios",
+        "file-share",
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594650.9891407,
+      "returning_count": 8,
+      "last_fast_scan": 1780478175.1036022,
+      "last_slow_scan": 1780478175.1036022,
+      "rx_bytes_total": 158532,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2402,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "84:a4:66:fb:fc:55",
+      "mac": "84:a4:66:fb:fc:55",
+      "ips": {
+        "192.168.1.2": 1780594650.9839287
+      },
+      "first_seen": 1780164088.4294949,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "http-title",
+        "macvendors",
+        "tcp-fingerprint"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [
+        {
+          "value": "404 - Not Found",
+          "source": "http",
+          "score": 40,
+          "last_seen": 1780164094.8067276
+        }
+      ],
+      "services": [
+        "8080/http",
+        "8443/https"
+      ],
+      "http_titles": {
+        "8080": "404 - Not Found"
+      },
+      "tls_names": {},
+      "device_type": "Unknown",
+      "confidence": 10,
+      "evidence": [],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594650.9839287,
+      "returning_count": 0,
+      "last_fast_scan": 1780164088.4294949,
+      "last_slow_scan": 1780164088.4294949,
+      "rx_bytes_total": 158466,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2401,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "86:87:86:5a:7f:ab",
+      "mac": "86:87:86:5a:7f:ab",
+      "ips": {
+        "192.168.46.102": 1780596557.845121
+      },
+      "first_seen": 1779976962.2806566,
+      "last_seen": 1780596557.5858357,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "ssdp-passive"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [
+        "urn:dial-multiscreen-org:..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "iPhone/iPad",
+      "confidence": 8,
+      "evidence": [
+        "private-mac:8",
+        "private-mac:8",
+        "private-mac:5"
+      ],
+      "offline_fail_count": 1,
+      "last_probe_at": 1780596557.845121,
+      "returning_count": 33,
+      "last_fast_scan": 1780596489.1567192,
+      "last_slow_scan": 1780596522.2764287,
+      "rx_bytes_total": 413440,
+      "tx_bytes_total": 349416,
+      "rx_packets_total": 6202,
+      "tx_packets_total": 6269,
+      "last_traffic_at": 1780596557.5858357
+    },
+    {
+      "device_id": "8c:17:59:1d:16:c7",
+      "mac": "8c:17:59:1d:16:c7",
+      "ips": {
+        "192.168.46.113": 1780596557.845121
+      },
+      "first_seen": 1780472304.499102,
+      "last_seen": 1780596543.5370998,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "netbios-query",
+        "reverse-dns",
+        "ssdp-passive",
+        "tcp-fingerprint",
+        "tcp-liveness"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [
+        {
+          "value": "LAPTOP-UKK2299F",
+          "source": "netbios",
+          "score": 80,
+          "last_seen": 1780596085.434995
+        },
+        {
+          "value": "WORKGROUP",
+          "source": "netbios",
+          "score": 80,
+          "last_seen": 1780594798.8960626
+        },
+        {
+          "value": "DESKTOP-O0S319C",
+          "source": "netbios",
+          "score": 80,
+          "last_seen": 1780473443.7926702
+        },
+        {
+          "value": "LAPTOP-UKK2299F",
+          "source": "dns",
+          "score": 65,
+          "last_seen": 1780596090.382713
+        },
+        {
+          "value": "DESKTOP-O0S319C",
+          "source": "dns",
+          "score": 65,
+          "last_seen": 1780473448.7417371
+        }
+      ],
+      "services": [
+        "139/netbios",
+        "445/smb",
+        "urn:schemas-upnp-org:devi..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Windows Laptop/PC",
+      "confidence": 64,
+      "evidence": [
+        "smb/netbios:34",
+        "smb/netbios:32",
+        "file-share:8",
+        "keyword:Windows Laptop/PC:12",
+        "computer-name:20"
+      ],
+      "offline_fail_count": 3,
+      "last_probe_at": 1780596557.845121,
+      "returning_count": 2,
+      "last_fast_scan": 1780596085.4251957,
+      "last_slow_scan": 1780596085.4251957,
+      "rx_bytes_total": 76104,
+      "tx_bytes_total": 2034,
+      "rx_packets_total": 1146,
+      "tx_packets_total": 17,
+      "last_traffic_at": 1780596543.5370998
+    },
+    {
+      "device_id": "98:48:27:26:a1:17",
+      "mac": "98:48:27:26:a1:17",
+      "ips": {
+        "192.168.47.1": 1780594650.9989424
+      },
+      "first_seen": 1780478848.5759692,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "http-title",
+        "macvendors",
+        "ssdp-passive",
+        "tcp-fingerprint"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [
+        {
+          "value": "TL-WR841N",
+          "source": "http",
+          "score": 40,
+          "last_seen": 1780478852.6056674
+        }
+      ],
+      "services": [
+        "22/ssh",
+        "80/http",
+        "Router Webserver",
+        "Unspecified, UPnP/1.0, Un...",
+        "ipos/7.0 UPnP/1.0 TL-WR84...",
+        "upnp:rootdevice",
+        "urn:schemas-upnp-org:devi...",
+        "urn:schemas-upnp-org:serv...",
+        "urn:schemas-wifialliance-...",
+        "uuid:00000000-0000-1000-0...",
+        "uuid:060b7353-fca6-4070-8...",
+        "uuid:254e9977-8964-49f3-b...",
+        "uuid:565aa949-67c1-4c0e-a...",
+        "uuid:9f0865b3-f5da-4ad5-8..."
+      ],
+      "http_titles": {
+        "80": "TL-WR841N"
+      },
+      "tls_names": {},
+      "device_type": "Router/AP",
+      "confidence": 94,
+      "evidence": [
+        "default-gateway",
+        "ssh+web-admin",
+        "ssh+web",
+        "keyword:Router/AP"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594650.9989424,
+      "returning_count": 1,
+      "last_fast_scan": 1780479374.8144343,
+      "last_slow_scan": 1780478848.5759692,
+      "rx_bytes_total": 159456,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2416,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "9a:93:c1:bf:c3:d2",
+      "mac": "9a:93:c1:bf:c3:d2",
+      "ips": {
+        "192.168.46.110": 1780495075.5775683,
+        "192.168.46.101": 1780596558.315883
+      },
+      "first_seen": 1779987018.0987444,
+      "last_seen": 1780596558.315883,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "ssdp-passive"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [
+        "urn:dial-multiscreen-org:..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "iPhone/iPad",
+      "confidence": 8,
+      "evidence": [
+        "private-mac:8",
+        "private-mac:8",
+        "private-mac:5"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780596532.979954,
+      "returning_count": 104,
+      "last_fast_scan": 1780596553.2950673,
+      "last_slow_scan": 1780596495.8113134,
+      "rx_bytes_total": 77450,
+      "tx_bytes_total": 61018,
+      "rx_packets_total": 1101,
+      "tx_packets_total": 1037,
+      "last_traffic_at": 1780596557.9933152
+    },
+    {
+      "device_id": "9e:f0:c3:e9:57:9f",
+      "mac": "9e:f0:c3:e9:57:9f",
+      "ips": {
+        "192.168.46.101": 1780495075.6023204,
+        "192.168.46.103": 1780596557.846127
+      },
+      "first_seen": 1780411851.7338393,
+      "last_seen": 1780594159.9155238,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "iPhone/iPad",
+      "confidence": 8,
+      "evidence": [
+        "private-mac:8",
+        "private-mac:8",
+        "private-mac:5"
+      ],
+      "offline_fail_count": 501,
+      "last_probe_at": 1780596557.846127,
+      "returning_count": 85,
+      "last_fast_scan": 1780594106.159688,
+      "last_slow_scan": 1780593833.8552952,
+      "rx_bytes_total": 69172,
+      "tx_bytes_total": 7173,
+      "rx_packets_total": 1039,
+      "tx_packets_total": 59,
+      "last_traffic_at": 1780594159.9155238
+    },
+    {
+      "device_id": "a4:f4:c2:a4:d0:f2",
+      "mac": "a4:f4:c2:a4:d0:f2",
+      "ips": {
+        "192.168.1.1": 1780594651.0006943
+      },
+      "first_seen": 1780164088.2676606,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "http-title",
+        "macvendors",
+        "tcp-fingerprint"
+      ],
+      "vendor": "VNPT TECHNOLOGY",
+      "names": [
+        {
+          "value": "GPON ONT",
+          "source": "http",
+          "score": 40,
+          "last_seen": 1780164092.2196832
+        }
+      ],
+      "services": [
+        "443/https",
+        "80/http"
+      ],
+      "http_titles": {
+        "80": "GPON ONT"
+      },
+      "tls_names": {},
+      "device_type": "Router/AP",
+      "confidence": 70,
+      "evidence": [
+        "default-gateway"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594651.0006943,
+      "returning_count": 0,
+      "last_fast_scan": 1780164088.2676606,
+      "last_slow_scan": 1780164088.2676606,
+      "rx_bytes_total": 158400,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2400,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "b2:01:ed:6a:74:51",
+      "mac": "b2:01:ed:6a:74:51",
+      "ips": {
+        "192.168.46.116": 1780596558.3273926
+      },
+      "first_seen": 1780591405.8613183,
+      "last_seen": 1780596558.3273926,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "mdns-zeroconf",
+        "nbns-passive",
+        "netbios-query",
+        "reverse-dns"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [
+        {
+          "value": "FE1EAA93CB90@Máy tính xách tay của Nguyễn",
+          "source": "mdns",
+          "score": 95,
+          "last_seen": 1780595563.190338
+        },
+        {
+          "value": "Máy tính xách tay của Nguyễn",
+          "source": "mdns",
+          "score": 95,
+          "last_seen": 1780595563.190338
+        },
+        {
+          "value": "MAC-A2FA42",
+          "source": "netbios",
+          "score": 80,
+          "last_seen": 1780596489.3621686
+        },
+        {
+          "value": "MAC-A2FA42",
+          "source": "dns",
+          "score": 65,
+          "last_seen": 1780596491.2867057
+        },
+        {
+          "value": "ENEBEDCNEBDCEGEBDEDCCACACACACAAA",
+          "source": "nbns",
+          "score": 55,
+          "last_seen": 1780594322.4053802
+        }
+      ],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Windows Laptop/PC",
+      "confidence": 37,
+      "evidence": [
+        "keyword:Windows Laptop/PC:12",
+        "private-mac:8",
+        "private-mac:8",
+        "private-mac:5",
+        "computer-name:20"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780596523.7458742,
+      "returning_count": 5,
+      "last_fast_scan": 1780596549.9951518,
+      "last_slow_scan": 1780596500.155426,
+      "rx_bytes_total": 90820,
+      "tx_bytes_total": 126803,
+      "rx_packets_total": 1315,
+      "tx_packets_total": 951,
+      "last_traffic_at": 1780596554.8892384
+    },
+    {
+      "device_id": "ba:00:57:a7:ef:15",
+      "mac": "ba:00:57:a7:ef:15",
+      "ips": {
+        "192.168.1.5": 1780594650.9921944
+      },
+      "first_seen": 1780164108.675178,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594650.9921944,
+      "returning_count": 0,
+      "last_fast_scan": 1780164108.675178,
+      "last_slow_scan": 1780164108.675178,
+      "rx_bytes_total": 157872,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2392,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "ba:60:9d:23:24:53",
+      "mac": "ba:60:9d:23:24:53",
+      "ips": {
+        "192.168.44.103": 1780465177.448117,
+        "192.168.44.101": 1780594650.9989424
+      },
+      "first_seen": 1780335793.4854116,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors",
+        "ssdp-passive"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [
+        "urn:schemas-upnp-org:devi..."
+      ],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594650.9989424,
+      "returning_count": 5,
+      "last_fast_scan": 1780478172.8435228,
+      "last_slow_scan": 1780478172.8435228,
+      "rx_bytes_total": 158466,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2401,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "c2:d1:c1:cf:73:03",
+      "mac": "c2:d1:c1:cf:73:03",
+      "ips": {
+        "192.168.46.109": 1780596558.3253307
+      },
+      "first_seen": 1780592146.714337,
+      "last_seen": 1780596558.3253307,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "iPhone/iPad",
+      "confidence": 8,
+      "evidence": [
+        "private-mac:8",
+        "private-mac:8",
+        "private-mac:5"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780596552.8091967,
+      "returning_count": 6,
+      "last_fast_scan": 1780596553.303364,
+      "last_slow_scan": 1780596495.7978766,
+      "rx_bytes_total": 86056,
+      "tx_bytes_total": 69662,
+      "rx_packets_total": 1231,
+      "tx_packets_total": 1237,
+      "last_traffic_at": 1780596557.9933152
+    },
+    {
+      "device_id": "e6:48:22:5d:87:b8",
+      "mac": "e6:48:22:5d:87:b8",
+      "ips": {
+        "192.168.1.3": 1780594651.0032077
+      },
+      "first_seen": 1780164088.4294949,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594651.0032077,
+      "returning_count": 0,
+      "last_fast_scan": 1780164088.4294949,
+      "last_slow_scan": 1780164088.4294949,
+      "rx_bytes_total": 158466,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2401,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "ee:f6:2b:e7:71:d7",
+      "mac": "ee:f6:2b:e7:71:d7",
+      "ips": {
+        "192.168.46.111": 1780596557.846127
+      },
+      "first_seen": 1780594752.3799186,
+      "last_seen": 1780596557.9933152,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "iPhone/iPad",
+      "confidence": 8,
+      "evidence": [
+        "private-mac:8",
+        "private-mac:8",
+        "private-mac:5"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780596557.846127,
+      "returning_count": 0,
+      "last_fast_scan": 1780596545.3067806,
+      "last_slow_scan": 1780595981.390075,
+      "rx_bytes_total": 297248,
+      "tx_bytes_total": 71586,
+      "rx_packets_total": 4475,
+      "tx_packets_total": 1088,
+      "last_traffic_at": 1780596557.9933152
+    },
+    {
+      "device_id": "f2:ee:0d:eb:a5:e3",
+      "mac": "f2:ee:0d:eb:a5:e3",
+      "ips": {
+        "192.168.1.4": 1780594650.9839287
+      },
+      "first_seen": 1780164104.6343663,
+      "last_seen": 1780594651.8511174,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 0,
+      "last_probe_at": 1780594650.9839287,
+      "returning_count": 0,
+      "last_fast_scan": 1780164104.6343663,
+      "last_slow_scan": 1780164104.6343663,
+      "rx_bytes_total": 158004,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 2394,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780594651.8511174
+    },
+    {
+      "device_id": "f6:ed:38:ed:b2:27",
+      "mac": "f6:ed:38:ed:b2:27",
+      "ips": {
+        "192.168.46.114": 1780495075.6008027,
+        "192.168.46.104": 1780596557.845121
+      },
+      "first_seen": 1780410584.29355,
+      "last_seen": 1780501666.2471335,
+      "online": false,
+      "sources": [
+        "arp-sniff",
+        "arp-sweep",
+        "macvendors"
+      ],
+      "vendor": "Unknown/Private MAC",
+      "names": [],
+      "services": [],
+      "http_titles": {},
+      "tls_names": {},
+      "device_type": "Apple Device",
+      "confidence": 4,
+      "evidence": [
+        "private-mac",
+        "private-mac"
+      ],
+      "offline_fail_count": 1550,
+      "last_probe_at": 1780596557.845121,
+      "returning_count": 97,
+      "last_fast_scan": 1780501608.0881844,
+      "last_slow_scan": 1780501153.4365523,
+      "rx_bytes_total": 0,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 0,
+      "tx_packets_total": 0,
+      "last_traffic_at": 0.0
+    }
+  ]
+}
