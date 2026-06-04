@@ -6,8 +6,10 @@ compatibility while the public package surface is being stabilized.
 
 from .cli import (
     COMMON_TCP_PORTS,
+    DEFAULT_CACHE_DIR,
     DEFAULT_OFFLINE_AFTER,
     DEFAULT_OFFLINE_FAIL_THRESHOLD,
+    DEFAULT_OUI_DB,
     DEFAULT_PROFILE,
     DEFAULT_STATE_FILE,
     DEFAULT_SWEEP_INTERVAL,

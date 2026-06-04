@@ -41,6 +41,11 @@ from typing import Deque, Dict, Iterable, List, Optional, Set, Tuple
 from urllib.parse import urlparse
 
 try:
+    from .vendor import UNKNOWN_VENDOR, ensure_oui_db, lookup_vendor_local
+except ImportError:  # Allow direct execution during local debugging.
+    from vendor import UNKNOWN_VENDOR, ensure_oui_db, lookup_vendor_local  # type: ignore
+
+try:
     import requests
     import urllib3
     from bs4 import BeautifulSoup
@@ -77,6 +82,8 @@ DEFAULT_STATE_FILE = "lan_watcher_state.json"
 DEFAULT_STATE_DIR = "state"
 DEFAULT_ALIAS_FILE = "device_aliases.json"
 DEFAULT_TRAFFIC_WINDOW = 5.0
+DEFAULT_CACHE_DIR = "cache"
+DEFAULT_OUI_DB = os.path.join(DEFAULT_CACHE_DIR, "oui.csv")
 
 FAST_TTL = 60.0
 SLOW_TTL = 600.0
@@ -90,7 +97,6 @@ NETBIOS_TIMEOUT = 0.45
 DNS_TIMEOUT = 0.6
 TLS_TIMEOUT = 0.8
 MACVENDOR_TIMEOUT = 1.2
-MACVENDOR_SLEEP = 0.35
 
 FAST_WORKER_COUNT = 4
 VENDOR_WORKERS = 2
@@ -176,7 +182,8 @@ TRAFFIC_PENDING: Dict[Tuple[str, str], Tuple[int, int, float]] = {}
 VENDOR_CACHE: Dict[str, str] = {}
 VENDOR_LOCK = threading.Lock()
 VENDOR_SEM = threading.BoundedSemaphore(VENDOR_WORKERS)
-LAST_VENDOR_CALL = 0.0
+OUI_DB_PATH = DEFAULT_OUI_DB
+ENABLE_OUI_DOWNLOAD = True
 
 ENABLE_TCP_PROBE = True
 ENABLE_VENDOR_API = True
@@ -603,7 +610,7 @@ def is_unicast_host_ip(ip: Optional[str], network: Optional[ipaddress.IPv4Networ
         return False
     try:
         addr = ipaddress.IPv4Address(str(ip))
-        if addr.is_multicast or addr.is_unspecified or addr.is_loopback or addr.is_link_local:
+        if addr.is_multicast or addr.is_unspecified or addr.is_loopback or addr.is_link_local or addr.is_reserved:
             return False
         if network and (addr == network.network_address or addr == network.broadcast_address):
             return False
@@ -1693,7 +1700,7 @@ def handle_packet(packet, network: ipaddress.IPv4Network, use_traffic: bool = Tr
                 snapshot = read_snapshot()
                 known_ips = {ip for _, ip in snapshot.all_targets} if snapshot else set()
                 if src_ip not in known_ips and dst_ip not in known_ips:
-                    raise StopIteration
+                    return
                 submit_traffic_observation(src_ip, dst_ip, packet_length(packet), time.time())
 
         if packet.haslayer(ARP):
@@ -1739,8 +1746,6 @@ def handle_packet(packet, network: ipaddress.IPv4Network, use_traffic: bool = Tr
             name = extract_plain_name(payload)
             if name:
                 submit_observation(Observation(kind="nbns", ip=src_ip, name=name, source="nbns-passive", confidence=50))
-    except StopIteration:
-        return
     except Exception:
         return
 
@@ -2009,29 +2014,20 @@ def tls_name(ip: str, port: int) -> Optional[str]:
 
 
 def lookup_vendor(mac: str) -> str:
-    global LAST_VENDOR_CALL
     oui = normalize_mac(mac)[:8]
     with VENDOR_LOCK:
         cached = VENDOR_CACHE.get(oui)
     if cached:
         return cached
     with VENDOR_SEM:
-        wait_for = 0.0
         with VENDOR_LOCK:
             cached = VENDOR_CACHE.get(oui)
             if cached:
                 return cached
-            delta = time.time() - LAST_VENDOR_CALL
-            if delta < MACVENDOR_SLEEP:
-                wait_for = MACVENDOR_SLEEP - delta
-            LAST_VENDOR_CALL = time.time() + wait_for
-        if wait_for > 0:
-            time.sleep(wait_for)
         try:
-            response = requests.get(f"https://api.macvendors.com/{mac}", timeout=MACVENDOR_TIMEOUT)
-            vendor = compact(response.text.strip(), 80) if response.status_code == 200 and response.text.strip() else "Unknown/Private MAC"
+            vendor = compact(lookup_vendor_local(mac, OUI_DB_PATH, allow_download=ENABLE_OUI_DOWNLOAD), 80)
         except Exception:
-            vendor = "Unknown/Private MAC"
+            vendor = UNKNOWN_VENDOR
         with VENDOR_LOCK:
             VENDOR_CACHE[oui] = vendor
         return vendor
@@ -2078,7 +2074,7 @@ def slow_fingerprint_worker() -> None:
             if ENABLE_VENDOR_API:
                 vendor = lookup_vendor(job.mac)
                 if vendor:
-                    submit_observation(Observation(kind="vendor", ip=job.ip, mac=job.mac, value=vendor, source="macvendors", confidence=35))
+                    submit_observation(Observation(kind="vendor", ip=job.ip, mac=job.mac, value=vendor, source="oui-local", confidence=35))
         finally:
             SLOW_QUEUE.task_done()
 
@@ -2612,6 +2608,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--min-confidence", type=int, default=0, help="Hide devices below this confidence percentage.")
     parser.add_argument("--traffic-window", type=float, default=DEFAULT_TRAFFIC_WINDOW, help="Seconds used for live RX/TX rate smoothing.")
     parser.add_argument("--no-traffic", action="store_true", help="Disable best-effort per-device traffic accounting.")
+    parser.add_argument("--oui-db", default=DEFAULT_OUI_DB, help="Offline OUI CSV cache path for NIC/Wi-Fi vendor lookup.")
+    parser.add_argument("--refresh-oui-db", action="store_true", help="Download and replace the local OUI CSV before scanning.")
+    parser.add_argument("--no-oui-download", action="store_true", help="Do not auto-download the OUI CSV when it is missing.")
     parser.add_argument("--export-json")
     parser.add_argument("--export-csv")
     parser.add_argument("--event-log")
@@ -2619,7 +2618,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--no-tcp-probe", action="store_true")
     parser.add_argument("--no-mdns", action="store_true")
     parser.add_argument("--no-ssdp", action="store_true")
-    parser.add_argument("--no-vendor-api", action="store_true")
+    parser.add_argument("--no-vendor-api", action="store_true", help="Backward-compatible alias: disable vendor/OUI lookup.")
     return parser.parse_args()
 
 
@@ -2691,7 +2690,7 @@ def configure_windows_console() -> None:
 
 
 def main() -> None:
-    global ENABLE_MDNS, ENABLE_SSDP, ENABLE_TCP_PROBE, ENABLE_VENDOR_API
+    global ENABLE_MDNS, ENABLE_SSDP, ENABLE_TCP_PROBE, ENABLE_VENDOR_API, OUI_DB_PATH, ENABLE_OUI_DOWNLOAD
     try:
         sys.stdout.reconfigure(encoding="utf-8")
         sys.stderr.reconfigure(encoding="utf-8")
@@ -2706,6 +2705,8 @@ def main() -> None:
     ENABLE_SSDP = not args.no_ssdp
     ENABLE_TCP_PROBE = not args.no_tcp_probe
     ENABLE_VENDOR_API = not args.no_vendor_api
+    OUI_DB_PATH = args.oui_db
+    ENABLE_OUI_DOWNLOAD = not args.no_oui_download
     install_signal_handlers()
     startup_warning()
 
@@ -2721,6 +2722,12 @@ def main() -> None:
         sys.exit(1)
 
     state_file = args.state_file or subnet_state_file(network, args.state_dir)
+    oui_records = 0
+    if ENABLE_VENDOR_API:
+        try:
+            oui_records = len(ensure_oui_db(args.oui_db, refresh=args.refresh_oui_db, allow_download=ENABLE_OUI_DOWNLOAD, timeout=10.0))
+        except Exception:
+            oui_records = 0
     initial_devices = load_state(state_file)
     aliases = load_aliases(args.alias_file)
     gateway_ip = get_default_gateway_ip()
@@ -2748,6 +2755,11 @@ def main() -> None:
     print(f"[+] Gateway:   {gateway_ip or 'unknown'}")
     print(f"[+] Profile:   {args.profile}")
     print(f"[+] State:     {state_file} ({len(initial_devices)} loaded; realtime rows only)")
+    if ENABLE_VENDOR_API:
+        mode = "download off" if args.no_oui_download else "auto-download"
+        print(f"[+] OUI DB:    {args.oui_db} ({oui_records} prefixes; {mode})")
+    else:
+        print("[+] OUI DB:    disabled")
     print(f"[+] Aliases:   {args.alias_file} ({len(aliases)} loaded)")
     time.sleep(1.0)
 
