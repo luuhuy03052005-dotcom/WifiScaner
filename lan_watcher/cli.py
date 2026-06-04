@@ -96,10 +96,9 @@ HTTP_TIMEOUT = 0.8
 NETBIOS_TIMEOUT = 0.45
 DNS_TIMEOUT = 0.6
 TLS_TIMEOUT = 0.8
-MACVENDOR_TIMEOUT = 1.2
 
 FAST_WORKER_COUNT = 4
-VENDOR_WORKERS = 2
+VENDOR_WORKERS = 8
 
 GENERIC_NIC_VENDORS = [
     "azurewave",
@@ -2306,7 +2305,7 @@ def render_events(snapshot: StateSnapshot, width: int, color: bool = False) -> L
         rows.append("")
         rows.append(colorize("Recent events", "bold", color))
         rows.append("-" * min(width, 120))
-        for event in snapshot.events[:5]:
+        for event in snapshot.events[:3]:
             event_color = "green"
             if "OFFLINE" in event:
                 event_color = "yellow"
@@ -2396,27 +2395,40 @@ def render_wide_table(snapshot: StateSnapshot, interface: str, network: ipaddres
 
 def table_column_widths(width: int) -> List[Tuple[str, int]]:
     width = max(96, min(width, 220))
-    fixed = [
-        ("#", 3),
-        ("IP", 15),
-        ("Status", 8),
-        ("Role", 8),
-        ("Conf", 5),
-        ("RX", 9),
-        ("TX", 9),
-        ("Pkt/s", 7),
-        ("Seen", 6),
-    ]
-    separators = 2 * (len(fixed) + 3 - 1)
-    remaining = width - sum(col_width for _, col_width in fixed) - separators
-    if remaining < 24:
-        name = max(10, remaining // 3)
-        dtype = 14
+    sep_total = lambda count: 3 * max(0, count - 1)
+
+    if width < 128:
+        fixed = [("#", 3), ("IP", 15), ("Status", 8), ("RX", 9), ("TX", 9), ("Seen", 6)]
+        remaining = width - sum(col_width for _, col_width in fixed) - sep_total(len(fixed) + 2)
+        name = max(12, min(22, remaining - 12))
+        dtype = max(10, remaining - name)
+        return [("#", 3), ("IP", 15), ("Name", name), ("Status", 8), ("Type", dtype), ("RX", 9), ("TX", 9), ("Seen", 6)]
+
+    if width < 170:
+        fixed = [("#", 3), ("IP", 15), ("Status", 8), ("Role", 8), ("Conf", 5), ("RX", 9), ("TX", 9), ("Seen", 6)]
+        remaining = width - sum(col_width for _, col_width in fixed) - sep_total(len(fixed) + 3)
+        name = max(14, min(28, int(remaining * 0.42)))
+        dtype = max(12, min(18, int(remaining * 0.30)))
         nic = max(8, remaining - name - dtype)
-    else:
-        name = max(18, min(46, int(remaining * 0.38)))
-        dtype = max(16, min(22, int(remaining * 0.18)))
-        nic = max(18, min(48, remaining - name - dtype))
+        return [
+            ("#", 3),
+            ("IP", 15),
+            ("Name", name),
+            ("Status", 8),
+            ("Role", 8),
+            ("Type", dtype),
+            ("Conf", 5),
+            ("NIC/Card", nic),
+            ("RX", 9),
+            ("TX", 9),
+            ("Seen", 6),
+        ]
+
+    fixed = [("#", 3), ("IP", 15), ("Status", 8), ("Role", 8), ("Conf", 5), ("RX", 9), ("TX", 9), ("Pkt/s", 7), ("Seen", 6)]
+    remaining = width - sum(col_width for _, col_width in fixed) - sep_total(len(fixed) + 3)
+    name = max(18, min(46, int(remaining * 0.38)))
+    dtype = max(16, min(22, int(remaining * 0.24)))
+    nic = max(18, remaining - name - dtype)
     return [
         ("#", 3),
         ("IP", 15),
@@ -2433,22 +2445,27 @@ def table_column_widths(width: int) -> List[Tuple[str, int]]:
     ]
 
 
+def table_divider(columns: List[Tuple[str, int]], char: str = "-") -> str:
+    return "-+-".join(char * width for _, width in columns)
+
+
 def render_device_table(snapshot: StateSnapshot, interface: str, network: ipaddress.IPv4Network, interval: float, width: int, color: bool = True) -> str:
     width = max(96, min(width, 220))
     columns = table_column_widths(width)
     col_width = dict(columns)
-    sep = "  "
-    divider = "-" * min(width, sum(col_width for _, col_width in columns) + len(sep) * (len(columns) - 1))
+    sep = " | "
+    divider = table_divider(columns)
+    strong_divider = table_divider(columns, "=")
     header = sep.join(cell(name, col_width, "bold", color) for name, col_width in columns)
     rows = [
-        colorize("LAN WATCHER PRO - ONLINE TABLE", "bold", color),
-        compact(f"Network {display_interface(interface)} | current subnet only: {network}", width),
-        compact(f"Devices online={snapshot.online_count} hidden={snapshot.hidden_offline_count} | {type_summary(snapshot, width).replace('Types     : ', 'types=')}", width),
-        compact(f"Traffic RX={format_rate(snapshot.total_rx_kbps)} TX={format_rate(snapshot.total_tx_kbps)} top={snapshot.top_talker}", width),
-        compact(f"Runtime obs/s={snapshot.obs_rate:.1f} queues={snapshot.obs_qsize}/{snapshot.fast_qsize}/{snapshot.slow_qsize} dropped={snapshot.dropped_total} ui={interval:.2f}s", width),
-        divider,
+        colorize("LAN WATCHER PRO - ONLINE DEVICES", "bold", color),
+        compact(f"Subnet {network} | Interface {display_interface(interface)}", width),
+        compact(f"Online {snapshot.online_count} | Hidden {snapshot.hidden_offline_count} | {type_summary(snapshot, width).replace('Types     : ', 'Types ')}", width),
+        compact(f"Traffic RX {format_rate(snapshot.total_rx_kbps)} | TX {format_rate(snapshot.total_tx_kbps)} | Top {snapshot.top_talker}", width),
+        compact(f"Runtime obs/s {snapshot.obs_rate:.1f} | queues obs/fast/slow {snapshot.obs_qsize}/{snapshot.fast_qsize}/{snapshot.slow_qsize} | dropped {snapshot.dropped_total} | refresh {interval:.2f}s", width),
+        strong_divider,
         header,
-        divider,
+        strong_divider,
     ]
     if not snapshot.devices_online:
         rows.append(colorize("No online devices visible yet. Waiting for ARP/DHCP/mDNS/active probes.", "yellow", color))
@@ -2467,30 +2484,30 @@ def render_device_table(snapshot: StateSnapshot, interface: str, network: ipaddr
 
     ordered_devices = sorted(snapshot.devices_online, key=sort_key)
     for index, device in enumerate(ordered_devices, start=1):
-        row_values = [
-            cell(f"{index:02d}", 3, "bold", color),
-            cell(device.ip, 15, "cyan", color),
-            cell(device.name if device.name != "not learned yet" else "-", col_width["Name"], None if device.name != "not learned yet" else "dim", color),
-            cell(device.status, col_width["Status"], status_color(device.status), color),
-            cell(device.role, col_width["Role"], role_color(device.role), color),
-            cell(device.device_type, col_width["Type"], device_type_color(device.device_type), color),
-            cell(f"{device.confidence}%", 5, confidence_color(device.confidence), color),
-            cell(device.nic_vendor, col_width["NIC/Card"], None, color),
-            cell(format_rate(device.rx_kbps), col_width["RX"], traffic_color(device), color),
-            cell(format_rate(device.tx_kbps), col_width["TX"], traffic_color(device), color),
-            cell(f"{device.packet_rate:.1f}", col_width["Pkt/s"], traffic_color(device), color),
-            cell(device.seen, 6, None, color),
-        ]
-        rows.append(sep.join(row_values))
+        row_cells = {
+            "#": cell(f"{index:02d}", col_width.get("#", 3), "bold", color),
+            "IP": cell(device.ip, col_width.get("IP", 15), "cyan", color),
+            "Name": cell(device.name if device.name != "not learned yet" else "-", col_width.get("Name", 18), None if device.name != "not learned yet" else "dim", color),
+            "Status": cell(device.status, col_width.get("Status", 8), status_color(device.status), color),
+            "Role": cell(device.role, col_width.get("Role", 8), role_color(device.role), color),
+            "Type": cell(device.device_type, col_width.get("Type", 16), device_type_color(device.device_type), color),
+            "Conf": cell(f"{device.confidence}%", col_width.get("Conf", 5), confidence_color(device.confidence), color),
+            "NIC/Card": cell(device.nic_vendor, col_width.get("NIC/Card", 18), None, color),
+            "RX": cell(format_rate(device.rx_kbps), col_width.get("RX", 9), traffic_color(device), color),
+            "TX": cell(format_rate(device.tx_kbps), col_width.get("TX", 9), traffic_color(device), color),
+            "Pkt/s": cell(f"{device.packet_rate:.1f}", col_width.get("Pkt/s", 7), traffic_color(device), color),
+            "Seen": cell(device.seen, col_width.get("Seen", 6), None, color),
+        }
+        rows.append(sep.join(row_cells[name] for name, _ in columns))
     rows.append(divider)
     if snapshot.show_events:
         rows.extend(render_events(snapshot, width, color=color))
     else:
-        rows.append("Hint: Recent events hidden. Remove --no-events to show them.")
+        rows.append(colorize(compact("Hint: events hidden. Remove --no-events to show them.", width), "dim", color))
     if snapshot.show_legend:
         rows.extend(render_legend(width, color=color))
     else:
-        rows.append("Hint: chú thích đang ẩn. Bỏ --no-legend để hiện phần giải thích.")
+        rows.append(colorize(compact("Hint: dùng --show-help để hiện chú thích tiếng Việt; --ui-mode detail để xem bằng chứng từng máy.", width), "dim", color))
     return "\n".join(rows)
 
 
@@ -2600,7 +2617,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--no-color", action="store_true", help="Disable ANSI colors in the terminal UI.")
     parser.add_argument("--no-events", dest="show_events", action="store_false", default=True, help="Hide Recent events.")
     parser.add_argument("--show-events", dest="show_events", action="store_true", help="Show Recent events.")
-    parser.add_argument("--no-legend", dest="show_legend", action="store_false", default=True, help="Hide Vietnamese legend/help.")
+    parser.add_argument("--no-legend", dest="show_legend", action="store_false", default=False, help="Keep Vietnamese legend/help hidden. This is the default.")
     parser.add_argument("--show-help", dest="show_legend", action="store_true", help="Show Vietnamese legend/help.")
     parser.add_argument("--sort", choices=["traffic", "ip", "confidence"], default="traffic", help="Sort devices in the table.")
     parser.add_argument("--only-active-traffic", action="store_true", help="Show only devices with active observed traffic.")

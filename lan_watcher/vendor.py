@@ -47,6 +47,7 @@ def parse_oui_csv(path: str) -> Dict[str, str]:
                 _first_value(
                     row,
                     [
+                        "mac prefix",
                         "macPrefix",
                         "mac_prefix",
                         "prefix",
@@ -59,6 +60,7 @@ def parse_oui_csv(path: str) -> Dict[str, str]:
             vendor = _first_value(
                 row,
                 [
+                    "vendor name",
                     "vendorName",
                     "vendor_name",
                     "vendor",

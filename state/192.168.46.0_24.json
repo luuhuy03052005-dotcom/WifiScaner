@@ -1,75 +1,69 @@
 {
   "schema_version": 2,
-  "saved_at": 1780597327.1977413,
+  "saved_at": 1780599921.2230442,
   "devices": [
     {
       "device_id": "48:e7:da:42:82:39",
       "mac": "48:e7:da:42:82:39",
       "ips": {
-        "192.168.46.115": 1780597327.1962137
+        "192.168.46.115": 1780599918.5363436
       },
       "first_seen": 1780596490.9650385,
-      "last_seen": 1780597327.1962137,
+      "last_seen": 1780599921.0146391,
       "online": false,
       "sources": [
         "arp-sniff",
         "arp-sweep",
         "macvendors",
+        "oui-local",
         "reverse-dns",
         "tcp-fingerprint",
         "tcp-liveness"
       ],
-      "vendor": "AzureWave Technology Inc.",
+      "vendor": null,
       "names": [
         {
           "value": "Huy",
           "source": "dns",
           "score": 65,
-          "last_seen": 1780597303.5189028
+          "last_seen": 1780599881.4037387
         }
       ],
-      "services": [
-        "139/netbios",
-        "445/smb"
-      ],
+      "services": [],
       "http_titles": {},
       "tls_names": {},
       "device_type": "Windows Laptop/PC",
-      "confidence": 68,
+      "confidence": 12,
       "evidence": [
-        "smb/netbios:34",
-        "smb/netbios:32",
-        "file-share:8",
-        "keyword:Windows Laptop/PC:12",
-        "generic-wifi-nic:12",
-        "generic-wifi-nic:3"
+        "keyword:Windows Laptop/PC:12"
       ],
       "offline_fail_count": 0,
       "last_probe_at": 0.0,
-      "returning_count": 2,
-      "last_fast_scan": 1780597303.0510762,
-      "last_slow_scan": 1780597090.9657884,
-      "rx_bytes_total": 20337634,
-      "tx_bytes_total": 21864018,
-      "rx_packets_total": 27139,
-      "tx_packets_total": 32515,
-      "last_traffic_at": 1780597326.89883
+      "returning_count": 5,
+      "last_fast_scan": 1780599880.9512055,
+      "last_slow_scan": 1780599354.0855947,
+      "rx_bytes_total": 42510,
+      "tx_bytes_total": 67383,
+      "rx_packets_total": 227,
+      "tx_packets_total": 502,
+      "last_traffic_at": 1780599921.0146391
     },
     {
       "device_id": "50:bb:b5:58:50:28",
       "mac": "50:bb:b5:58:50:28",
       "ips": {
-        "192.168.46.113": 1780597323.8775795
+        "192.168.46.113": 1780599918.5363436
       },
       "first_seen": 1780596491.748492,
-      "last_seen": 1780597323.8775795,
+      "last_seen": 1780599918.5363436,
       "online": false,
       "sources": [
         "arp-sniff",
         "arp-sweep",
-        "macvendors"
+        "macvendors",
+        "oui-local"
       ],
-      "vendor": "Unknown/Private MAC",
+      "vendor": null,
       "names": [],
       "services": [],
       "http_titles": {},
@@ -78,80 +72,69 @@
       "confidence": 10,
       "evidence": [],
       "offline_fail_count": 0,
-      "last_probe_at": 1780597307.0467386,
-      "returning_count": 1,
-      "last_fast_scan": 1780597275.8296423,
-      "last_slow_scan": 1780597092.0232813,
-      "rx_bytes_total": 59936,
+      "last_probe_at": 1780599917.4373336,
+      "returning_count": 4,
+      "last_fast_scan": 1780599881.2001245,
+      "last_slow_scan": 1780599354.346297,
+      "rx_bytes_total": 4790,
       "tx_bytes_total": 0,
-      "rx_packets_total": 890,
+      "rx_packets_total": 71,
       "tx_packets_total": 0,
-      "last_traffic_at": 1780597307.1938152
+      "last_traffic_at": 1780599917.2121515
     },
     {
       "device_id": "68:ff:7b:3e:8c:06",
       "mac": "68:ff:7b:3e:8c:06",
       "ips": {
-        "192.168.46.1": 1780597326.8053632
+        "192.168.46.1": 1780599918.5363436
       },
       "first_seen": 1780596490.9770508,
-      "last_seen": 1780597326.8053632,
+      "last_seen": 1780599918.5363436,
       "online": false,
       "sources": [
         "arp-sniff",
         "arp-sweep",
         "macvendors",
+        "oui-local",
         "ssdp-passive",
         "tcp-fingerprint",
         "tcp-liveness"
       ],
-      "vendor": "TP-LINK TECHNOLOGIES CO.,LTD.",
+      "vendor": null,
       "names": [],
-      "services": [
-        "22/ssh",
-        "80/http",
-        "Linux/2.6.36, UPnP/1.0, P...",
-        "upnp:rootdevice",
-        "urn:schemas-upnp-org:devi...",
-        "urn:schemas-upnp-org:serv...",
-        "uuid:9f0865b3-f5da-4ad5-8..."
-      ],
+      "services": [],
       "http_titles": {},
       "tls_names": {},
       "device_type": "Router/AP",
-      "confidence": 100,
+      "confidence": 70,
       "evidence": [
-        "default-gateway:70",
-        "ssh+web-admin:12",
-        "ssh+web:10",
-        "ssh+web:8",
-        "keyword:Router/AP:12",
-        "keyword:Linux/Server:12"
+        "default-gateway:70"
       ],
       "offline_fail_count": 0,
       "last_probe_at": 0.0,
-      "returning_count": 2,
-      "last_fast_scan": 1780597307.1094906,
-      "last_slow_scan": 1780597092.022777,
-      "rx_bytes_total": 29752,
-      "tx_bytes_total": 57411,
-      "rx_packets_total": 367,
-      "tx_packets_total": 355,
-      "last_traffic_at": 1780597325.8938842
+      "returning_count": 5,
+      "last_fast_scan": 1780599880.9542515,
+      "last_slow_scan": 1780599354.0896676,
+      "rx_bytes_total": 1322,
+      "tx_bytes_total": 2132,
+      "rx_packets_total": 15,
+      "tx_packets_total": 15,
+      "last_traffic_at": 1780599915.7570095
     },
     {
       "device_id": "86:87:86:5a:7f:ab",
       "mac": "86:87:86:5a:7f:ab",
       "ips": {
-        "192.168.46.102": 1780597325.5352674
+        "192.168.46.102": 1780599917.4373336
       },
       "first_seen": 1780596492.0134492,
-      "last_seen": 1780597325.5352674,
+      "last_seen": 1780599921.0146391,
       "online": false,
       "sources": [
         "arp-sniff",
         "arp-sweep",
-        "macvendors"
+        "macvendors",
+        "oui-local"
       ],
       "vendor": "Unknown/Private MAC",
       "names": [],
@@ -166,31 +149,32 @@
         "private-mac:5"
       ],
       "offline_fail_count": 0,
-      "last_probe_at": 1780597322.682179,
-      "returning_count": 1,
-      "last_fast_scan": 1780597297.5115921,
-      "last_slow_scan": 1780597093.6519613,
-      "rx_bytes_total": 117398,
-      "tx_bytes_total": 99786,
-      "rx_packets_total": 1763,
-      "tx_packets_total": 1799,
-      "last_traffic_at": 1780597323.8609822
+      "last_probe_at": 1780599917.4373336,
+      "returning_count": 2,
+      "last_fast_scan": 1780599899.063248,
+      "last_slow_scan": 1780599899.063248,
+      "rx_bytes_total": 5780,
+      "tx_bytes_total": 5070,
+      "rx_packets_total": 86,
+      "tx_packets_total": 89,
+      "last_traffic_at": 1780599921.0146391
     },
     {
       "device_id": "9a:93:c1:bf:c3:d2",
       "mac": "9a:93:c1:bf:c3:d2",
       "ips": {
-        "192.168.46.101": 1780597326.7312977
+        "192.168.46.101": 1780599918.5363436
       },
       "first_seen": 1780596491.647498,
-      "last_seen": 1780597326.4878826,
+      "last_seen": 1780599918.5363436,
       "online": false,
       "sources": [
         "arp-sniff",
         "arp-sweep",
-        "macvendors"
+        "macvendors",
+        "oui-local"
       ],
-      "vendor": "Unknown/Private MAC",
+      "vendor": null,
       "names": [],
       "services": [],
       "http_titles": {},
@@ -202,25 +186,25 @@
         "private-mac:8",
         "private-mac:5"
       ],
-      "offline_fail_count": 1,
-      "last_probe_at": 1780597326.7312977,
-      "returning_count": 2,
-      "last_fast_scan": 1780597282.07981,
-      "last_slow_scan": 1780597099.3109515,
-      "rx_bytes_total": 132288,
-      "tx_bytes_total": 8714,
-      "rx_packets_total": 1989,
-      "tx_packets_total": 159,
-      "last_traffic_at": 1780597326.4878826
+      "offline_fail_count": 0,
+      "last_probe_at": 1780599894.610185,
+      "returning_count": 5,
+      "last_fast_scan": 1780599881.1948156,
+      "last_slow_scan": 1780599354.3452919,
+      "rx_bytes_total": 2612,
+      "tx_bytes_total": 2224,
+      "rx_packets_total": 38,
+      "tx_packets_total": 40,
+      "last_traffic_at": 1780599895.3025346
     },
     {
       "device_id": "b2:01:ed:6a:74:51",
       "mac": "b2:01:ed:6a:74:51",
       "ips": {
-        "192.168.46.116": 1780597323.8775795
+        "192.168.46.116": 1780599918.5363436
       },
       "first_seen": 1780596491.7505002,
-      "last_seen": 1780597323.8775795,
+      "last_seen": 1780599918.5363436,
       "online": false,
       "sources": [
         "arp-sniff",
@@ -228,108 +212,79 @@
         "macvendors",
         "mdns-zeroconf",
         "netbios-query",
+        "oui-local",
         "reverse-dns"
       ],
-      "vendor": "Unknown/Private MAC",
-      "names": [
-        {
-          "value": "Máy tính xách tay của Nguyễn",
-          "source": "mdns",
-          "score": 95,
-          "last_seen": 1780596725.8403306
-        },
-        {
-          "value": "FE1EAA93CB90@Máy tính xách tay của Nguyễn",
-          "source": "mdns",
-          "score": 95,
-          "last_seen": 1780596725.8403306
-        },
-        {
-          "value": "MAC-A2FA42",
-          "source": "netbios",
-          "score": 80,
-          "last_seen": 1780596767.6317296
-        },
-        {
-          "value": "MAC-A2FA42",
-          "source": "dns",
-          "score": 65,
-          "last_seen": 1780597026.3910236
-        }
-      ],
+      "vendor": null,
+      "names": [],
       "services": [],
       "http_titles": {},
       "tls_names": {},
-      "device_type": "Windows Laptop/PC",
-      "confidence": 37,
+      "device_type": "iPhone/iPad",
+      "confidence": 8,
       "evidence": [
-        "keyword:Windows Laptop/PC:12",
         "private-mac:8",
         "private-mac:8",
-        "private-mac:5",
-        "computer-name:20"
+        "private-mac:5"
       ],
       "offline_fail_count": 0,
-      "last_probe_at": 1780597307.047747,
-      "returning_count": 2,
-      "last_fast_scan": 1780597275.84151,
-      "last_slow_scan": 1780597092.0232813,
-      "rx_bytes_total": 63936,
-      "tx_bytes_total": 7726,
-      "rx_packets_total": 951,
-      "tx_packets_total": 135,
-      "last_traffic_at": 1780597307.1938152
+      "last_probe_at": 1780599917.4373336,
+      "returning_count": 5,
+      "last_fast_scan": 1780599881.2062197,
+      "last_slow_scan": 1780599354.3574803,
+      "rx_bytes_total": 4922,
+      "tx_bytes_total": 592,
+      "rx_packets_total": 73,
+      "tx_packets_total": 1,
+      "last_traffic_at": 1780599917.2121515
     },
     {
       "device_id": "c2:d1:c1:cf:73:03",
       "mac": "c2:d1:c1:cf:73:03",
       "ips": {
-        "192.168.46.109": 1780597326.7312977
+        "192.168.46.109": 1780599361.0367963
       },
       "first_seen": 1780596493.9554532,
-      "last_seen": 1780597326.489405,
+      "last_seen": 1780599363.9480174,
       "online": false,
       "sources": [
         "arp-sniff",
         "arp-sweep",
         "macvendors"
       ],
-      "vendor": "Unknown/Private MAC",
+      "vendor": null,
       "names": [],
       "services": [],
       "http_titles": {},
       "tls_names": {},
-      "device_type": "iPhone/iPad",
-      "confidence": 8,
-      "evidence": [
-        "private-mac:8",
-        "private-mac:8",
-        "private-mac:5"
-      ],
-      "offline_fail_count": 1,
+      "device_type": null,
+      "confidence": 0,
+      "evidence": [],
+      "offline_fail_count": 0,
       "last_probe_at": 1780597326.7312977,
-      "returning_count": 2,
-      "last_fast_scan": 1780597224.9429998,
-      "last_slow_scan": 1780597095.198678,
-      "rx_bytes_total": 107762,
-      "tx_bytes_total": 30786,
-      "rx_packets_total": 1617,
-      "tx_packets_total": 563,
-      "last_traffic_at": 1780597326.489405
+      "returning_count": 3,
+      "last_fast_scan": 1780599360.2006688,
+      "last_slow_scan": 1780599360.2006688,
+      "rx_bytes_total": 0,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 0,
+      "tx_packets_total": 0,
+      "last_traffic_at": 0.0
     },
     {
       "device_id": "ee:f6:2b:e7:71:d7",
       "mac": "ee:f6:2b:e7:71:d7",
       "ips": {
-        "192.168.46.111": 1780597326.7312977
+        "192.168.46.111": 1780599917.4373336
       },
       "first_seen": 1780596495.8294568,
-      "last_seen": 1780597326.489405,
+      "last_seen": 1780599921.0146391,
       "online": false,
       "sources": [
         "arp-sniff",
         "arp-sweep",
-        "macvendors"
+        "macvendors",
+        "oui-local"
       ],
       "vendor": "Unknown/Private MAC",
       "names": [],
@@ -343,16 +298,16 @@
         "private-mac:8",
         "private-mac:5"
       ],
-      "offline_fail_count": 1,
-      "last_probe_at": 1780597326.7312977,
-      "returning_count": 2,
-      "last_fast_scan": 1780597307.3724625,
-      "last_slow_scan": 1780597106.7650802,
-      "rx_bytes_total": 84560,
-      "tx_bytes_total": 3584,
-      "rx_packets_total": 1269,
-      "tx_packets_total": 64,
-      "last_traffic_at": 1780597326.489405
+      "offline_fail_count": 0,
+      "last_probe_at": 1780599917.4373336,
+      "returning_count": 3,
+      "last_fast_scan": 1780599881.195837,
+      "last_slow_scan": 1780599881.195837,
+      "rx_bytes_total": 8486,
+      "tx_bytes_total": 0,
+      "rx_packets_total": 127,
+      "tx_packets_total": 0,
+      "last_traffic_at": 1780599921.0146391
     }
   ]
 }
